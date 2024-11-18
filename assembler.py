@@ -10,7 +10,7 @@ def parse_asm(input_text):
         exit(1)
     commands = []
     for i in range(len(input_text)):
-        line = input_text[i]
+        line = input_text[i].strip()
         args = line.split()
         if len(line) == 0:
             continue
