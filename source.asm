@@ -10,8 +10,6 @@ WRITE [2]
 LOAD #400
 WRITE [3]
 
-
-
 READ [0]
 MINUS
 WRITE [0]
