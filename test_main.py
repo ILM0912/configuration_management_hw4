@@ -91,3 +91,20 @@ def test_prog(setup):
     assert interpreter.MEMORY[2] == -300
     assert interpreter.MEMORY[3] == -400
 
+def test_binary(setup):
+    source_path, bin_path, log_path, result_log = setup
+    asm_code = '''
+        LOAD #909
+        READ [168]
+        WRITE [394]
+        MINUS
+    '''
+    with open(source_path, 'w') as f:
+        f.write(asm_code)
+    assembler.assemble(source_path, bin_path, log_path)
+    with open(bin_path, 'rb') as f:
+        byte = f.read()
+    assert byte[0:3] == b'\x71\xe3\x00'
+    assert byte[3:8] == b'\x29\x2a\x00\x00\x00'
+    assert byte[8:13] == b'\x97\x62\x00\x00\x00'
+    assert byte[13:14] == b'\x2a'

@@ -127,7 +127,7 @@ def assemble(source_path, bin_path, log_path):
             commands = parse_asm(text)
             writeLog(commands, log_path)
             writeBin(commands, bin_path)
-            print('бинарный файл сформирован')
+            return 'бинарный файл сформирован'
 
 def main():
     source_path = sys.argv[1]
@@ -140,7 +140,7 @@ def main():
         print(f'файл {bin_path} - не бинарный')
         exit(1)
     else:
-        assemble(source_path, bin_path, log_path)
+        print(assemble(source_path, bin_path, log_path))
 
 if __name__ == '__main__':
     main()

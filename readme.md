@@ -168,7 +168,7 @@ MINUS
    - **source_file** - файл с текстом исходной команды
    - **bin_file** - бинарный файл (результат работы ассемблера)
    - **log_file** - файл-лог
-5. Запуск ассемблера:
+5. Запуск интерпретатора:
     ```bash
    python interpreter.py <bin_file> <result_file> <start> <end>
     ```
